@@ -5,7 +5,7 @@ const StockListing = (
     props
 ) => {
     const { listingData, handleStockClick } = props;
-    const data = Object.values(listingData);
+    const data = listingData ? Object.values(listingData) : {};
 
     if (!listingData) {
         return (
