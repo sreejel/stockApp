@@ -1,3 +1,4 @@
+import Router from 'next/router';
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 
@@ -19,11 +20,11 @@ const provider = new GoogleAuthProvider();
 export const signInwithGoogle = () => {
     signInWithPopup(auth, provider)
         .then((result) => {
-            console.log(result);
             sessionStorage.setItem("userAuthenticated",true);
             sessionStorage.setItem("userName",result.user.displayName);
             sessionStorage.setItem("userEmail",result.user.email);
             sessionStorage.setItem("photo",result.user.photoURL);
+            Router.push('/home');
         })
         .catch((error) => {
             console.log(error);

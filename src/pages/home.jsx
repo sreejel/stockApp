@@ -6,7 +6,7 @@ const finnhub = require('finnhub');
 
 function Home({ resp }) {
   const router = useRouter();
-  
+
   const [searchValue, setSearchValue] = useState('');
   const [apiData, setApiData] = useState();
   const [userName, setUserName] = useState();
@@ -14,6 +14,10 @@ function Home({ resp }) {
   const [toggleSearch, setToggleSearch] = useState(false);
 
   useEffect(() => {
+    const isAuthenticated = sessionStorage.getItem('userAuthenticated');
+    if (!isAuthenticated) {
+      router.push('/');
+    }
     const apiCall = async () => {
       const { api_key } = finnhub.ApiClient.instance.authentications;
       api_key.apiKey = 'cf8e5faad3i8qmbtof20cf8e5faad3i8qmbtof2g';
@@ -47,7 +51,7 @@ function Home({ resp }) {
   const handleSearchClick = () => {
     setToggleSearch(currState => !currState);
   };
-  
+
   return (
     <div className='w-full h-full min-h-[100vh] p-5 sm:p-10 bg-white '>
       <div className='min-h-[90vh] shadow-lg border border-[#006ce6] p-5 rounded-md'>
@@ -80,15 +84,5 @@ function Home({ resp }) {
     </div>
   );
 }
-
-// export async function getServerSideProps() {
-//   const { api_key } = finnhub.ApiClient.instance.authentications;
-//   api_key.apiKey = 'cf8e5faad3i8qmbtof20cf8e5faad3i8qmbtof2g';
-//   const finnhubClient = new finnhub.DefaultApi();
-
-//  finnhubClient.symbolSearch('goog', (error, data, response) => console.log(data));
-
-//   return { props: { } };
-// }
 
 export default Home;

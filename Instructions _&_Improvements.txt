@@ -1,0 +1,18 @@
+
+Approaches Taken:
+Search on submit rather than an debounce search as its a free plan and rate limits may be reached.
+
+Improvement possibilty:
+The auth mechanism can be implemented in a better way by creating an authGuard and then wrapping it around the app.
+
+Chart can be implemented in a better way.
+
+
+NB:
+Free plan only provides data in time Interval of '1 Day' in most cases. So please choose the intervals accordingly
+
+
+Instructions to run the code:
+
+npm i 
+npm run dev

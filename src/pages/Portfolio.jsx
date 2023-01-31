@@ -8,6 +8,10 @@ function Portfolio() {
   const [portfolioData, setPorfolioData] = useState([]);
 
   useEffect(() => {
+    const isAuthenticated = sessionStorage.getItem('userAuthenticated');
+    if (!isAuthenticated) {
+      router.push('/');
+    }
     setPorfolioData(JSON.parse(localStorage.getItem('portfolio')));
   }, []);
 
