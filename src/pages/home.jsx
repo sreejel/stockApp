@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import StockListing from '@/components/StockListing';
+import StockListing from '../components/StockListing';
 const finnhub = require('finnhub');
 
 function Home({ resp }) {

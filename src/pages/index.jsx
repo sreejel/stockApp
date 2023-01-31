@@ -3,7 +3,7 @@ import Router from 'next/router';
 import Head from 'next/head';
 
 import { Inter } from '@next/font/google';
-import { signInwithGoogle } from '@/Firebase';
+import { signInwithGoogle } from '../Firebase';
 
 const inter = Inter({ subsets: ['latin'] });
 
