@@ -49,7 +49,6 @@ const TrailChart = (props) => {
             if (xDomain === undefined) xDomain = weekdays(d3.min(X), d3.max(X));
             if (yDomain === undefined) yDomain = [d3.min(Yl), d3.max(Yh)];
             if (xTicks === undefined) xTicks = weeks(d3.min(xDomain), d3.max(xDomain), 2);
-            console.log(xDomain, 'xDomain');
 
             // Construct scales and axes.
             // If you were to plot a stock using d3.scaleUtc, you’d see distracting gaps
@@ -109,8 +108,6 @@ const TrailChart = (props) => {
                 .data(I)
                 .join("g")
                 .attr("transform", i => `translate(${xScale(X[i])},0)`);
-
-            console.log(xScale(2017 - 11 - 20));
 
             g.append("line")
                 .attr("y1", i => yScale(Yl[i]))

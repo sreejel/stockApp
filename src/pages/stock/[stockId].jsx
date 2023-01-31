@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+
 import StockChart from '../../components/chart/StockChart';
 
 function Stock() {
@@ -43,7 +44,6 @@ function Stock() {
   }, [stockId, timeInterval]);
 
   const transformData = (data) => {
-    console.log(data, 'data');
     if (data && data !== undefined) {
       if (data.c) {
         const length = data.c.length;
@@ -69,7 +69,6 @@ function Stock() {
 
   const handleAddToPortfolioClick = () => {
     const updatedPortfolio = JSON.parse(localStorage.getItem('portfolio')) || [];
-    console.log(updatedPortfolio);
     if (!updatedPortfolio.includes(stockId)) {
       updatedPortfolio.push(stockId);
     }
