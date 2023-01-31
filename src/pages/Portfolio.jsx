@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-import PortfolioCard from '@/components/PortfolioCard';
+import PortfolioCard from '../components/PortfolioCard';
 
 function Portfolio() {
   const router = useRouter();
